@@ -1,3 +1,24 @@
+function updateTime() {
+  let now = new Date();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let hour = now.getHours();
+  let minute = now.getMinutes();
+  let currentTime = `${day} ${hour}:${minute.toString().padStart(2, "0")},`;
+  let formattedTime = document.querySelector("#formatted-time");
+  formattedTime.innerHTML = currentTime;
+}
+setInterval(updateTime, 1000);
+//
+
 function updateWeather(response) {
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(response.data.temperature.current);
