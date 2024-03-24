@@ -3,6 +3,12 @@ function updateWeather(response) {
   temperature.innerHTML = Math.round(response.data.temperature.current);
   let city = document.querySelector("#city");
   city.innerHTML = response.data.city;
+  let condition = document.querySelector("#condition");
+  condition.innerHTML = response.data.condition.description;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
 }
 
 function searchCity(city) {
