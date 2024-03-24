@@ -19,6 +19,8 @@ function updateTime() {
 setInterval(updateTime, 1000);
 //
 
+//
+
 function updateWeather(response) {
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(response.data.temperature.current);
@@ -30,6 +32,11 @@ function updateWeather(response) {
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+  console.log(response);
+  let icon = document.querySelector("#icon");
+  icon.innerHTML = `
+    <img
+      src="${response.data.condition.icon_url}"/>`;
 }
 
 function searchCity(city) {
